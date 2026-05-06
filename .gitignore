@@ -1,0 +1,48 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Visual Studio
+.vs/
+*.vspscc
+*.pidb
+*.pdb
+
+# Rider / VS Code
+.idea/
+.vscode/
+*.swp
+
+# Configuración local / secretos
+*.local.json
+appsettings.local.json
+secrets.json
+.env
+*.env
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Docker
+*.tar
+
+# Tests
+TestResults/
+[Cc]overage*/
+*.coverage
+*.coveragexml
+
+# Publicación
+publish/
+PublishProfiles/
+
+# Misc
+*.DS_Store
+Thumbs.db

@@ -1,0 +1,38 @@
+@TiendaPromElec_HostAddress = https://localhost:5001
+
+### Registro
+POST {{TiendaPromElec_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "fullName": "Cliente Demo",
+  "email": "demo@promelec.com",
+  "password": "Demo#2025!"
+}
+
+### Login (admin por defecto)
+POST {{TiendaPromElec_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@promelec.com",
+  "password": "Admin#2025!"
+}
+
+### Listar productos (público)
+GET {{TiendaPromElec_HostAddress}}/api/Product
+
+### Crear producto (requiere token de admin)
+POST {{TiendaPromElec_HostAddress}}/api/Product
+Authorization: Bearer <PEGAR_TOKEN_AQUI>
+Content-Type: application/json
+
+{
+  "name": "Producto Demo",
+  "description": "Producto de prueba",
+  "brand": "DemoBrand",
+  "price": 100.50,
+  "stock": 10,
+  "imageUrl": "https://via.placeholder.com/300",
+  "categoryId": 1
+}
