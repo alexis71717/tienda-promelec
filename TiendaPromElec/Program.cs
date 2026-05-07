@@ -23,7 +23,14 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
     ?? throw new InvalidOperationException("ConnectionStrings:DefaultConnection no configurado.");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(connectionString));
+{
+    // Si el connection string empieza con "Data Source=" usa SQLite (dev local).
+    // Si no, usa SQL Server (producción / Docker).
+    if (connectionString.StartsWith("Data Source=", StringComparison.OrdinalIgnoreCase))
+        options.UseSqlite(connectionString);
+    else
+        options.UseSqlServer(connectionString);
+});
 
 // ============================================================================
 // IDENTITY (HASHING DE CONTRASEÑAS PBKDF2 + POLÍTICAS DE PASSWORD - OWASP A07)

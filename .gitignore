@@ -46,3 +46,8 @@ PublishProfiles/
 # Misc
 *.DS_Store
 Thumbs.db
+
+# SQLite (base de datos local de desarrollo)
+*.db
+*.db-shm
+*.db-wal
